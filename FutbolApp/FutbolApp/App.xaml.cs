@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using FutbolApp.Datos;
+using SQLite.Net.Interop;
 using Xamarin.Forms;
 
 namespace FutbolApp
 {
     public partial class App : Application
     {
-        public App()
+        public static BaseDatos BaseDatos { get; set; }
+
+        public App(string rutaBD, ISQLitePlatform plataforma)
         {
+            BaseDatos = new BaseDatos(plataforma, rutaBD);
+            BaseDatos.Conectar();
+
             InitializeComponent();
 
-            MainPage = new FutbolApp.MainPage();
+            MainPage = new NavigationPage(new FutbolApp.Paginas.PaginaMenu());
         }
 
         protected override void OnStart()

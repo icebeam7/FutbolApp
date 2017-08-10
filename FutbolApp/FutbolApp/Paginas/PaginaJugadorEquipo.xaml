@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FutbolApp.Paginas.PaginaJugadorEquipo" Title="Detalle">
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="10">
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Image x:Name="imgFoto" Source="{Binding FotoJugador}" VerticalOptions="StartAndExpand" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" Margin="10"/>
+                <Label Text="{Binding NombreJugador}" FontSize="20" TextColor="Black" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Image x:Name="imgEscudo" Source="{Binding EscudoEquipo}" VerticalOptions="StartAndExpand" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" Margin="10"/>
+                <Label Text="{Binding NombreEquipo}" FontSize="20" TextColor="Black" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <Label Text="Numero" FontSize="Medium" TextColor="Black" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start"/>
+            <Entry Text="{Binding Numero}" Keyboard="Numeric" WidthRequest="100" FontSize="20" TextColor="Black" BackgroundColor="White" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+
+            <Label Text="Goles" FontSize="Medium" TextColor="Black" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start"/>
+            <Entry Text="{Binding Goles}" Keyboard="Numeric" WidthRequest="100" FontSize="20" TextColor="Black" BackgroundColor="White" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+        </StackLayout>
+    </ScrollView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Guardar" Text="Guardar" Order="Primary" Priority="0" Clicked="Guardar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

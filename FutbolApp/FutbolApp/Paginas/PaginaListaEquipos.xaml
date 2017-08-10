@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FutbolApp.Paginas.PaginaListaEquipos" Title="Equipos">
+    <StackLayout>
+        <ListView x:Name="lsvEquipos" ItemSelected="lsvEquipos_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="White" Spacing="5" Orientation="Horizontal" Padding="5">
+                            <Image Source="{Binding Escudo}" Aspect="AspectFill" WidthRequest="70" HeightRequest="70"/>
+                            <Label Text="{Binding Nombre}" LineBreakMode="WordWrap" VerticalOptions="Center" FontSize="15" TextColor="#030303" HorizontalOptions="Start" Margin="12,5,12,1" HorizontalTextAlignment="Start"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Agregar" Text="Agregar" Order="Primary" Priority="0" Clicked="Agregar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

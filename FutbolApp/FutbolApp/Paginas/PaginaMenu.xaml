@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FutbolApp.Paginas.PaginaMenu" Title="Menu">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Jugadores" Text="Jugadores" Order="Primary" Priority="0" Clicked="Jugadores_Clicked"/>
+        <ToolbarItem x:Name="Equipos" Text="Equipos" Order="Primary" Priority="1" Clicked="Equipos_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

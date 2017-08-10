@@ -1,10 +1,5 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
 namespace FutbolApp.Droid
@@ -20,8 +15,14 @@ namespace FutbolApp.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+
+            string rutaBD = Helpers.FileHelper.ObtenerRutaLocal("futbol-v3.db3");
+            LoadApplication(new App(rutaBD, new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid()));
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }
-

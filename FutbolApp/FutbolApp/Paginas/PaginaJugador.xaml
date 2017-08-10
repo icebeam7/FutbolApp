@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FutbolApp.Paginas.PaginaJugador" Title="Jugador">
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="10">
+            <Label Text="Nombre:" FontSize="Medium" TextColor="Black" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start"/>
+            <Entry Text="{Binding Nombre}" Placeholder="Nombre" WidthRequest="200" FontSize="20" TextColor="Black" BackgroundColor="White" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+            <Button x:Name="btnFoto" Text="Elegir foto" BackgroundColor="LightBlue" Margin="10" TextColor="Black" WidthRequest="200" HorizontalOptions="Center" Clicked="btnFoto_Clicked"/>
+            <Image x:Name="imgFoto" Source="{Binding Foto}" VerticalOptions="StartAndExpand" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" Margin="10"/>
+            <Label Text="Fecha de Nacimiento:" FontSize="Medium" TextColor="Black" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start"/>
+            <DatePicker x:Name="dtpFecha" Date="{Binding FechaNacimiento}" BackgroundColor="White" TextColor="Black"/>
+
+            <ListView x:Name="lsvEquipos" ItemSelected="lsvEquipos_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="White" Spacing="5" Orientation="Horizontal" Padding="5">
+                                <Image Source="{Binding Escudo}" Aspect="AspectFill" WidthRequest="70" HeightRequest="70"/>
+                                <Label Text="{Binding Nombre}" LineBreakMode="WordWrap" VerticalOptions="Center" FontSize="15" TextColor="#030303" HorizontalOptions="Start" Margin="12,5,12,1" HorizontalTextAlignment="Start"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ScrollView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Guardar" Text="Guardar" Order="Primary" Priority="0" Clicked="Guardar_Clicked"/>
+        <ToolbarItem x:Name="Eliminar" Text="Eliminar" Order="Primary" Priority="1" Clicked="Eliminar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

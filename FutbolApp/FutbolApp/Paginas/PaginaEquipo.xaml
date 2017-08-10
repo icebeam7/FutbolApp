@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FutbolApp.Paginas.PaginaEquipo" Title="Equipo">
+    <ScrollView>
+        <StackLayout Padding="10" Spacing="10">
+            <Label Text="Nombre:" FontSize="Medium" TextColor="Black" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start"/>
+            <Entry Text="{Binding Nombre}" Placeholder="Nombre" WidthRequest="200" FontSize="20" TextColor="Black" BackgroundColor="White" HorizontalOptions="Start" Margin="10" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+            <Button x:Name="btnEscudo" Text="Elegir escudo" BackgroundColor="LightBlue" Margin="10" TextColor="Black" WidthRequest="200" HorizontalOptions="Center" Clicked="btnEscudo_Clicked"/>
+            <Image x:Name="imgEscudo" Source="{Binding Escudo}" VerticalOptions="StartAndExpand" HorizontalOptions="Center" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" Margin="10"/>
+
+            <ListView x:Name="lsvJugadores" ItemSelected="lsvJugadores_ItemSelected" ItemsSource="{Binding Jugadores}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="White" Spacing="5" Orientation="Horizontal" Padding="5">
+                                <Image Source="{Binding Foto}" Aspect="AspectFill" WidthRequest="70" HeightRequest="70"/>
+                                <Label Text="{Binding Nombre}" LineBreakMode="WordWrap" VerticalOptions="Center" FontSize="15" TextColor="#030303" HorizontalOptions="Start" Margin="12,5,12,1" HorizontalTextAlignment="Start"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ScrollView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Guardar" Text="Guardar" Order="Primary" Priority="0" Clicked="Guardar_Clicked"/>
+        <ToolbarItem x:Name="Eliminar" Text="Eliminar" Order="Primary" Priority="1" Clicked="Eliminar_Clicked"/>
+        <ToolbarItem x:Name="Agregar" Text="Agregar jugador" Order="Primary" Priority="2" Clicked="Agregar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

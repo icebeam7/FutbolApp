@@ -21,7 +21,8 @@ namespace FutbolApp.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new FutbolApp.App());
+            string rutaBD = Helpers.FileHelper.ObtenerRutaLocal("futbol.db3");
+            LoadApplication(new FutbolApp.App(rutaBD, new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT()));
         }
     }
 }
