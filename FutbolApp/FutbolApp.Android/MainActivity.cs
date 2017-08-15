@@ -16,7 +16,7 @@ namespace FutbolApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            string rutaBD = Helpers.FileHelper.ObtenerRutaLocal("futbol-v3.db3");
+            string rutaBD = Helpers.FileHelper.ObtenerRutaLocal("futbol-v5.db3");
             LoadApplication(new App(rutaBD, new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid()));
         }
 

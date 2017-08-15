@@ -29,13 +29,14 @@ namespace FutbolApp.Paginas
             this.BindingContext = Detalle;
         }
 
-        private void Guardar_Clicked(object sender, EventArgs e)
+        private async void Guardar_Clicked(object sender, EventArgs e)
         {
             JugadorEquipo.Goles = Detalle.Goles;
             JugadorEquipo.Numero = Detalle.Numero;
 
             App.BaseDatos.ActualizarJugador(Jugador, Equipo);
             App.BaseDatos.ActualizarJugadorEquipo(JugadorEquipo);
+            await DisplayAlert("FutbolApp", "Datos actualizados con éxito", "OK");
         }
     }
 }

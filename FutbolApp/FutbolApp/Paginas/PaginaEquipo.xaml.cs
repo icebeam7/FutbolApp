@@ -27,12 +27,14 @@ namespace FutbolApp.Paginas
             imgEscudo.Source = ImageSource.FromFile(escudo.Path);
         }
 
-        private void Guardar_Clicked(object sender, EventArgs e)
+        private async void Guardar_Clicked(object sender, EventArgs e)
         {
             if (Equipo.ID > 0)
                 App.BaseDatos.ActualizarEquipo(Equipo);
             else
                 App.BaseDatos.AgregarEquipo(Equipo);
+
+            await DisplayAlert("FutbolApp", "Equipo registrado con éxito", "OK");
         }
 
         private async void Eliminar_Clicked(object sender, EventArgs e)
@@ -41,6 +43,9 @@ namespace FutbolApp.Paginas
             {
                 App.BaseDatos.EliminarEquipo(Equipo);
             }
+
+            await DisplayAlert("FutbolApp", "Equipo eliminado con éxito", "OK");
+            await Navigation.PopAsync();
         }
 
         private async void lsvJugadores_ItemSelected(object sender, SelectedItemChangedEventArgs e)

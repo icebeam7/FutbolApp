@@ -27,12 +27,14 @@ namespace FutbolApp.Paginas
             imgFoto.Source = ImageSource.FromFile(foto.Path);
         }
 
-        private void Guardar_Clicked(object sender, EventArgs e)
+        private async void Guardar_Clicked(object sender, EventArgs e)
         {
             if (Jugador.ID > 0)
                 App.BaseDatos.ActualizarJugador(Jugador);
             else
                 App.BaseDatos.AgregarJugador(Jugador);
+
+            await DisplayAlert("FutbolApp", "Jugador registrado con éxito", "OK");
         }
 
         private async void Eliminar_Clicked(object sender, EventArgs e)
@@ -40,6 +42,8 @@ namespace FutbolApp.Paginas
             if (await DisplayAlert("Eliminar", "¿Deseas eliminar el jugador?", "Si", "No"))
             {
                 App.BaseDatos.EliminarJugador(Jugador);
+                await DisplayAlert("FutbolApp", "Jugador eliminado con éxito", "OK");
+                await Navigation.PopAsync();
             }
         }
 
