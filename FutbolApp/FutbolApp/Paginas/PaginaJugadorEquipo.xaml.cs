@@ -29,7 +29,7 @@ namespace FutbolApp.Paginas
             this.BindingContext = Detalle;
         }
 
-        private async void Guardar_Clicked(object sender, EventArgs e)
+        private async void Guardar_Clicked(object sender, EventArgs e) 
         {
             JugadorEquipo.Goles = Detalle.Goles;
             JugadorEquipo.Numero = Detalle.Numero;
